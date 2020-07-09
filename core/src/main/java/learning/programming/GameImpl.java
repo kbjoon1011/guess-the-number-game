@@ -8,6 +8,13 @@ public class GameImpl implements Game {
     // == Constants ==
     private static final Logger log = LoggerFactory.getLogger(GameImpl.class);
 
+    // Constructor
+
+
+    public GameImpl(NumberGenerator numberGenerator) {
+        this.numberGenerator = numberGenerator;
+    }
+
     // == Fields ==
     private NumberGenerator numberGenerator;
     private int number;
