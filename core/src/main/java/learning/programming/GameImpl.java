@@ -3,19 +3,38 @@ package learning.programming;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 public class GameImpl implements Game {
 
     // == Constants ==
     private static final Logger log = LoggerFactory.getLogger(GameImpl.class);
 
-    // Constructor
-
-
+    // == Constructor ==
     public GameImpl(NumberGenerator numberGenerator) {
         this.numberGenerator = numberGenerator;
     }
 
+    // == Init ==
+    @PostConstruct
+    @Override
+    public void reset() {
+        number = numberGenerator.next();
+        guess = 0;
+        remainingGuesses = guessCount;
+        smallest = 0;
+        biggest = numberGenerator.getMaxNumber();
+        log.debug("The New Number is {}", number);
+    }
+
+    @PreDestroy
+    public void preDestroy(){
+        log.info("preDestroy is called.");
+    }
+
     // == Fields ==
+    //@Autowired
     private NumberGenerator numberGenerator;
     private int number;
     private int guess;
@@ -53,16 +72,6 @@ public class GameImpl implements Game {
     @Override
     public int getRemainingGuesses() {
         return remainingGuesses;
-    }
-
-    @Override
-    public void reset() {
-        number = numberGenerator.next();
-        guess = 0;
-        remainingGuesses = guessCount;
-        smallest = 0;
-        biggest = numberGenerator.getMaxNumber();
-        log.debug("The New Number is {}", number);
     }
 
     @Override

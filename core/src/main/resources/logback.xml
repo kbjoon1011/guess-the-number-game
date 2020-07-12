@@ -6,9 +6,9 @@
     </appender>
 
     <logger name="learning.programming" level="DEBUG"/>
-    <logger name="org.springframework" level="DEBUG"/>
+    <logger name="org.springframework" level="TRACE"/>
 
-    <root level="INFO">
+    <root level="DEBUG">
         <appender-ref ref="STDOUT"/>
     </root>
 </configuration>
