@@ -4,8 +4,10 @@ import learning.programming.GussCount;
 import learning.programming.MaxNumber;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
+@PropertySource("classpath:config/game.properties")
 public class GameConfig {
     private int maxNumber = 50;
 
