@@ -11,9 +11,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 1.8
@@ -22,15 +20,15 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn clean install
-    - name: Call Synopsys Detect
+    - name: Black Duck Synopsys Detect
       run: |
         bash <(curl -s -L https://detect.synopsys.com/detect8.sh) \
-        --blackduck.url="${{ secrets.BLACKDUCK_URL }}" \
-        --blackduck.api.token="${{ secrets.BLACKDUCK_API_TOKEN }}" \
+        --blackduck.url="https://blackduck.sktelecom.com" \
+        --blackduck.api.token="YzY2MGYxYmYtNzkwNC00YzBkLTliZTItMWEwM2JhZTRkMWVhOjZjMmE1MjE0LWU3MzQtNDhmNS05MGE3LWRjNzdkYWFmZTYwNQ==" \
         --blackduck.trust.cert=true
-    - name: Synopsys Action
-      uses: synopsys-sig/synopsys-action@v1.0.0
-      with:
-        blackduck_apiToken: ${{ secrets.BLACKDUCK_API_TOKEN }}
-        blackduck_url: ${{ secrets.BLACKDUCK_URL }}
+#     - name: Synopsys Action
+#       uses: synopsys-sig/synopsys-action@v1.0.0
+#       with:
+#         blackduck_apiToken: ${{ secrets.BLACKDUCK_API_TOKEN }}
+#         blackduck_url: ${{ secrets.BLACKDUCK_URL }}
     
