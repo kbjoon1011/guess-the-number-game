@@ -23,7 +23,8 @@ jobs:
     - name: Build with Maven
       run: mvn clean install
     - name: Call Synopsys Detect
-      run: bash <(curl -s -L https://detect.synopsys.com/detect8.sh) \
+      run: |
+        bash <(curl -s -L https://detect.synopsys.com/detect8.sh) \
         --blackduck.url="${{ secrets.BLACKDUCK_URL }}" \
         --blackduck.api.token="${{ secrets.BLACKDUCK_API_TOKEN }}" \
         --blackduck.trust.cert=true
