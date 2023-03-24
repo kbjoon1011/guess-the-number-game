@@ -23,14 +23,8 @@ jobs:
 #     - name: Black Duck Synopsys Detect
 #       run: |
 #         bash <(curl -s -L https://detect.synopsys.com/detect8.sh) \
-#         --blackduck.url="https://blackduck.sktelecom.com" \
-#         --blackduck.api.token="YzY2MGYxYmYtNzkwNC00YzBkLTliZTItMWEwM2JhZTRkMWVhOjZjMmE1MjE0LWU3MzQtNDhmNS05MGE3LWRjNzdkYWFmZTYwNQ==" \
+#         --blackduck.url="https://" \
+#         --blackduck.api.token="=" \
 #         --blackduck.trust.cert=true \
 #         --detect.project.name=kms_github_test \
 #         --detect.project.version.name=1
-#     - name: Synopsys Action
-#       uses: synopsys-sig/synopsys-action@v1.0.0
-#       with:
-#         blackduck_apiToken: ${{ secrets.BLACKDUCK_API_TOKEN }}
-#         blackduck_url: ${{ secrets.BLACKDUCK_URL }}
-    
