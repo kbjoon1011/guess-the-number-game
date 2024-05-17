@@ -22,7 +22,7 @@ jobs:
       run: mvn clean install
 #     - name: Black Duck Synopsys Detect
 #       run: |
-#         bash <(curl -s -L https://detect.synopsys.com/detect8.sh) \
+#         bash <(curl -s -L https://detect.synopsys.com/detect9.sh) \
 #         --blackduck.url="https://" \
 #         --blackduck.api.token="=" \
 #         --blackduck.trust.cert=true \
